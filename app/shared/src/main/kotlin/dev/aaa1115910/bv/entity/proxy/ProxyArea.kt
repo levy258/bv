@@ -11,6 +11,7 @@ enum class ProxyArea {
         fun checkProxyArea(title: String): ProxyArea {
             val enableProxy = Prefs.enableProxy
             val proxyArea = when {
+                title.contains(Regex("大陆|国产|国语|中文")) -> MainLand
                 !enableProxy -> MainLand
                 title.contains(Regex("僅.*港")) -> HongKong
                 title.contains(Regex("僅.*台")) -> TaiWan
